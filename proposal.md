@@ -12,8 +12,7 @@ User Stories
 
     MVP Goals
     * As a player, I want my game to recognize how many correct matches I can make within a certain time frame. 
-    * As a player, I want my game to inform me when the game is over due to the clock   running out of time. 
-    * As a player, I would like my game to begin with a set time to see all the cards  and memorize as many as possible before running out. 
+     
     * As a player, I would like to be informed with some indication when I click a game box so that I know my selection worked.
     * As a player I would like to be able to restart the game after time has expired.
     * As a player, I would the the game to record when I match two panels. 
@@ -23,7 +22,10 @@ User Stories
     * As a player, I would like to change the amount of time per round to make it easier or more difficult. 
     * As a player I would like to change the amount of squares in a round, to make it easier or more difficult. 
     *As a player, I would like to change the movie genre of the cards. 
-    *
+    * As a player, I want my game to inform me when the game is over due to the clock   running out of time. 
+    * As a player, I would like my game to begin with a set time to see all the cards  and memorize as many as possible before running out.
+    *Use API's to improve animation, 
+    *Re-Randomize the images when you play again
     Tech to Use
     * Flexbox/Grid
     * Set Timeout's 

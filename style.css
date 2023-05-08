@@ -1,0 +1,153 @@
+@font-face {
+    font-family: "Acme-Regular";
+    src: url("Memory\ Game\ Images/Acme/Acme-Regular.ttf") format("ttf");
+}
+
+* {
+    box-sizing: border-box;
+}
+html {
+    height: 100vh;
+}
+body {
+    margin:0;
+    background: radial-gradient(silver ,rgb(87, 85, 85));
+}
+.page-title {
+    color: white;
+    font-family: Acme-Regular, Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    font-weight: normal;
+    font-size: 4em;
+}
+
+.game-info {
+    color: whitesmoke;
+    font-family: Acme-Regular, Georgia, 'Times New Roman', Times, serif;
+    font-size: 2em;
+}
+
+.game-info-container {
+    grid-column: 1/ -1;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.game-container{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    gap: 10px;
+    margin: 75x;
+    justify-content: center;
+    perspective: 500px;
+}
+
+.card {
+    background-color: black;
+    position: relative;
+    height: 150px;
+    width: 150px;
+}
+
+.card-face {
+    position:absolute;
+    width:100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    backface-visibility: hidden ;
+    align-items: center;
+    transition: transform 400ms ease-in-out;
+
+}
+
+.card.visible .card-back{
+    transform: rotateY(-180deg);
+}
+
+.card.visible .card-front{
+    transform: rotateY(0deg);
+}
+
+.overlay-text {
+    display: none; 
+    position: fixed;
+    top:0;
+    right:0;
+    bottom: 0;
+    left: 0;
+   justify-content: center;
+   align-items: center;  
+   z-index: 100;
+   color: green;
+   font-family: Acme-Regular, Georgia, 'Times New Roman', Times, serif;
+}
+
+.overlay-text-small {
+    font-size: 0.3em;;
+}
+
+.overlay-text.visible {
+    display: flex;
+    flex-direction: column ;
+    animation: overlay-grow 500ms forwards;
+    align-items: center;
+    justify-content: center;
+    font-size: .6em;
+}
+
+@keyframes overlay-grow {
+    from {
+        background-color: rgba(0,0,0,0);
+        font-size: 0;
+    }
+    to {
+        background-color: rgba(0,0,0,.8);
+        font-size: 7em;
+    }
+    }
+
+
+
+.card-back {
+    background-color: black;
+
+}
+
+.card-front {
+    background-color: green;
+    transform: rotateY(180deg);
+
+}
+
+.card-value {
+    transition: transform 100ms ease-in-out;
+    transform: scale(.9);
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    object-fit: scale-down;
+}
+
+.card-front:hover .card-value {
+    transform: scale(1);
+}
+
+.movie-reel {
+    position: absolute;
+    width: 95%;
+    height: 95%;
+}
+
+@media (max-width: 600px) {
+    .game-container {
+        grid-template-columns: repeat (2,auto) ;
+    }
+    .game-info-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
