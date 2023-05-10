@@ -11,20 +11,29 @@ html {
 }
 body {
     margin:0;
-    background: radial-gradient(silver ,rgb(87, 85, 85));
+    background-color: #BA8C63 ;
+    opacity: .88;
+}
+
+
+h1{
+    border: #415EA3;
+    
 }
 .page-title {
-    color: white;
+    color: #415EA3;
     font-family: Acme-Regular, Georgia, 'Times New Roman', Times, serif;
     text-align: center;
     font-weight: normal;
     font-size: 4em;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .game-info {
-    color: whitesmoke;
+    color: #415EA3;
     font-family: Acme-Regular, Georgia, 'Times New Roman', Times, serif;
     font-size: 2em;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .game-info-container {
@@ -45,7 +54,7 @@ body {
 }
 
 .card {
-    background-color: black;
+    background-color: #BA8C63;
     position: relative;
     height: 150px;
     width: 150px;
@@ -73,7 +82,7 @@ body {
 }
 
 .overlay-text {
-    display: none; 
+    display:  none; 
     position: fixed;
     top:0;
     right:0;
@@ -82,15 +91,39 @@ body {
    justify-content: center;
    align-items: center;  
    z-index: 100;
-   color: green;
+   color: #415EA3;
    font-family: Acme-Regular, Georgia, 'Times New Roman', Times, serif;
 }
 
 #overlay-text-victory-small {
     font-size: 0.3em;
-    background-color: red;
+    background-color: #415EA3;
+    color: #BA8C63;
 
 }
+
+
+.overlay-text-start {
+    display: none;
+    flex-direction: column ;
+    animation: overlay-grow 500ms forwards;
+    align-items: center;
+    justify-content: center;
+    font-size: .6em;
+}
+
+.overlay-text-start.visible{
+    display: flex;
+}
+#start-game-btn{
+    display: flex;
+    flex-direction: column ;
+    animation: overlay-grow 500ms forwards;
+    align-items: center;
+    justify-content: center;
+    font-size: .6em;
+}
+
 
 .overlay-text.visible {
     display: flex;
@@ -115,12 +148,13 @@ body {
 
 
 .card-back {
-    background-color: black;
+    background-color: #BA8C63;
+    
 
 }
 
 .card-front {
-    background-color: green;
+    background-color: #BA8C63;
     transform: rotateY(180deg);
 
 }
