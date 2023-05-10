@@ -80,10 +80,10 @@ cardMisMatch(card1, card2){
     }
     victory() {
         document.getElementById('victory-text').classList.add('visible')  
-        document.getElementsByClassName('overlay-text-small').addEventListener('click', function(){
-            window.location.reload();
-            return false; 
-        })
+        // document.getElementsByClassName('overlay-text-small').addEventListener('click', function(){
+        //     window.location.reload();
+        //     return false; 
+        // })
         
     }
     
