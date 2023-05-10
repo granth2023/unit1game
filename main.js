@@ -1,4 +1,4 @@
-
+const overlaySmall = document.querySelector('.overlay-text-victory-small');
 
 class MixorMatch {
     constructor(cards){
@@ -9,7 +9,13 @@ class MixorMatch {
         this.shuffleCards();
         this.matchedCards = [];
     
+        
+        // const reloadBtn = document.createElement('button');
+        // reloadBtn.textContent = 'Reload';
+        
     }
+   
+    //overlaySmall.appendChild(reloadBtn);       
     
 startGame(){
         this.cardToCheck =null;
@@ -79,12 +85,18 @@ cardMisMatch(card1, card2){
         document.getElementById('game-over-text').classList.add('visible');
     }
     victory() {
-        document.getElementById('victory-text').classList.add('visible')  
+        document.getElementById('victory-text').classList.add('visible') 
+        const reloadBtn = document.getElementById("overlay-text-victory-small");
+        reloadBtn.addEventListener('click',() => {
+            location.reload();
+            console.log('reload with clicked')
+          });
+        
         // document.getElementsByClassName('overlay-text-small').addEventListener('click', function(){
         //     window.location.reload();
         //     return false; 
         // })
-        
+    
     }
     
     shuffleCards() {

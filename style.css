@@ -86,8 +86,10 @@ body {
    font-family: Acme-Regular, Georgia, 'Times New Roman', Times, serif;
 }
 
-.overlay-text-small {
-    font-size: 0.3em;;
+#overlay-text-victory-small {
+    font-size: 0.3em;
+    background-color: red;
+
 }
 
 .overlay-text.visible {
