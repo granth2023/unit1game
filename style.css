@@ -13,14 +13,13 @@ body {
     margin:0;
     background-color: #ffbf87 ;
     opacity: .88;
-
 }
 
 
 h1{
-    border: #415EA3;
-    
+    border: #415EA3;  
 }
+
 .page-title {
     color: #415EA3;
     font-family: Limelight, Georgia, 'Times New Roman', Times, serif;
@@ -29,6 +28,7 @@ h1{
     font-size: 4em;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+
 #title{
 display: inline-block;
 padding: 5px;
@@ -37,6 +37,7 @@ border-bottom: double rgb(255, 115, 0);
 border-right: none;
 border-left: none;
 }
+
 
 .game-info {
     color: #415EA3;
@@ -49,8 +50,6 @@ border-left: none;
     grid-column: 1/ -1;
     display: flex;
     justify-content: space-between;
-
-
 }
 
 .game-container{
@@ -79,7 +78,6 @@ border-left: none;
     backface-visibility: hidden ;
     align-items: center;
     transition: transform 400ms ease-in-out;
-
 }
 
 .card.visible .card-back{
@@ -112,7 +110,6 @@ border-left: none;
 
 }
 
-
 #overlay-welcome{
     position: fixed; 
     top: 0;
@@ -127,9 +124,7 @@ border-left: none;
     z-index: 100;
     color: red;
     background-color: none;
-
 }
-
 
 #startbutton{
     display: flex;
@@ -146,12 +141,8 @@ border-left: none;
     z-index: 101;
     color: #BA8C63;
     background-color: #415EA3;
-    
     font-family: Limelight, Georgia, 'Times New Roman', Times, serif;
-   
-
 }
-
 
 .overlay-text.visible {
     display: flex;
@@ -173,18 +164,13 @@ border-left: none;
     }
     }
 
-
-
 .card-back {
     background-color: #415EA3;
-    
-
 }
 
 .card-front {
     background-color: #ffbf87;
     transform: rotateY(180deg);
-
 }
 
 .card-value {
