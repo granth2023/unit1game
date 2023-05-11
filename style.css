@@ -11,8 +11,9 @@ html {
 }
 body {
     margin:0;
-    background-color: #BA8C63 ;
+    background-color: #ffbf87 ;
     opacity: .88;
+
 }
 
 
@@ -22,16 +23,24 @@ h1{
 }
 .page-title {
     color: #415EA3;
-    font-family: Acme-Regular, Georgia, 'Times New Roman', Times, serif;
+    font-family: Limelight, Georgia, 'Times New Roman', Times, serif;
     text-align: center;
     font-weight: normal;
     font-size: 4em;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+#title{
+display: inline-block;
+padding: 5px;
+border-top:  double  rgb(255, 115, 0);
+border-bottom: double rgb(255, 115, 0);
+border-right: none;
+border-left: none;
+}
 
 .game-info {
     color: #415EA3;
-    font-family: Acme-Regular, Georgia, 'Times New Roman', Times, serif;
+    font-family: Limelight, Georgia, 'Times New Roman', Times, serif;
     font-size: 2em;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
@@ -54,7 +63,7 @@ h1{
 }
 
 .card {
-    background-color: #BA8C63;
+    background-color: #415EA3;
     position: relative;
     height: 150px;
     width: 150px;
@@ -96,32 +105,51 @@ h1{
 }
 
 #overlay-text-victory-small {
-    font-size: 0.3em;
+    font-size: 2em;
     background-color: #415EA3;
     color: #BA8C63;
+    font-family: Limelight, Georgia, 'Times New Roman', Times, serif;
 
 }
 
 
-.overlay-text-start {
-    display: none;
-    flex-direction: column ;
-    animation: overlay-grow 500ms forwards;
-    align-items: center;
-    justify-content: center;
-    font-size: .6em;
-}
-
-.overlay-text-start.visible{
-    display: flex;
-}
-#start-game-btn{
+#overlay-welcome{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column ;
     animation: overlay-grow 500ms forwards;
     align-items: center;
     justify-content: center;
+    z-index: 100;
+    color: red;
+    background-color: none;
+
+}
+
+
+#startbutton{
+    display: flex;
+    flex-direction: column ;
+    animation: overlay-grow 500ms forwards;
+    align-items: center;
+    justify-content: center;
     font-size: .6em;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+    color: #BA8C63;
+    background-color: #415EA3;
+    
+    font-family: Limelight, Georgia, 'Times New Roman', Times, serif;
+   
+
 }
 
 
@@ -141,20 +169,20 @@ h1{
     }
     to {
         background-color: rgba(0,0,0,.8);
-        font-size: 7em;
+        font-size: 4.5em;
     }
     }
 
 
 
 .card-back {
-    background-color: #BA8C63;
+    background-color: #415EA3;
     
 
 }
 
 .card-front {
-    background-color: #BA8C63;
+    background-color: #ffbf87;
     transform: rotateY(180deg);
 
 }
@@ -187,3 +215,5 @@ h1{
         align-items: center;
     }
 }
+
+/* counter for flips counts only when it compares 2, increase size of the overlay text, add countdown clock, 

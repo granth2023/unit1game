@@ -1,3 +1,21 @@
+//need array, create div element to hold cards called container, run through array holding cards, and *append* the cards 
+ const cardContainer = document.createElement('div');
+cardContainer.classList.add('card-container');
+document.body.append(cardContainer)
+//run a for each through the array that is holding the cards , and going through each card and create a div for each for each card and append to the screen. 
+
+
+
+
+const startBTN = document.getElementsByClassName("overlay-welcome");
+const startBTN2 = document.getElementById('startbutton');
+startBTN.onclick = function (){
+    startBTN.style.display = 'none';
+}
+startBTN2.onclick = function (){
+    startBTN2.style.display = 'none';
+}
+
 
 
 //create to hold entirety of the game. We need to create a parameter to refer to all the pieces of the game which is CARDS. We have a memory game and it is won via getting all the cards correct so we need to call all of them, cards Array. We want to track how many flips a player uses. This is a ticker and it gets assigned to the id flips. we also need the cards shuffled at the beginning. We also need to have an array for the matched cards which we will later compare to cards array. 
@@ -6,7 +24,7 @@ class MixorMatch {
         this.cardsArray = cards;
         this.ticker = document.getElementById('flips');
         this.totalClicks = 0;
-        this.startButton = document.getElementById('start-game-btn');
+        
         //timer
         this.shuffleCards();
         this.matchedCards = [];
@@ -17,22 +35,17 @@ class MixorMatch {
     }
    
 // when we start the game we set card to check to null which means we are not checking anything and the busy to false which means nothing is in the way from checking any of the cards. Insert action page. at the top.        
+ 
+
+    
+
 
 startGame(){
-   
         this.cardToCheck =null;
-       
-        this.busy =false;
-        
+        this.busy =false;   
     }
 
 //after a card is has been selected and is now visible we want a function to return it to not being visible. This can happen to any card. !!!!!!!!When does it know two have been selected? !!!!!!!! so this does a for each method on the entirety fo the cards and removes visible and removes it from being matched if it doesn't have a match.
-setStartButtonClickListener() {
-    this.startButton.addEventListener('click', () => {
-      this.startGame();
-      this.startButton.remove();
-    });
-  }
 
 hideCards(){
         this.cardsArray.forEach(card=> {
@@ -129,7 +142,7 @@ function ready() {
    
 
      let game = new MixorMatch(cards);
-            game.setStartButtonClickListener();
+      
 
     overlays.forEach(overlay => {
         overlay.addEventListener('click', () => {

@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Match the Movie</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
     <script defer src="main.js"></script>
 </head>
-<div>
-    <h1 class ="page-title">Movie Match!</h1>
-    <div class="overlay-text-start">
-     <button id="start-game-btn">Lights Camera Action</button>
-</div>
+
+    <h1 class ="page-title"><span id="title">Movie Poster Match</span></h1>
+   <div class="overlay-welcome">
+    <button id="startbutton">click to start</button>
+   </div>
+
     
     <div id="game-over-text" class="overlay-text">
         And...cut!
@@ -28,7 +32,7 @@
                     FLIPS <span id="flips">0</span>
                 </div>
                 <div class="game-info">
-                    CORRECT <span id="correct">0</span>
+                    
                 </div>
             </div>
     <div class="card">
