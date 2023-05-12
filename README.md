@@ -47,16 +47,22 @@ JS: Assembling the card class into an array and calling that into a new Class th
 ``` Javascript
 
 function ready() {
+    let overlays = Array.from(document.getElementsByClassName('overlay-text'));
     let cards = Array.from(document.getElementsByClassName('card'));
-    let game = new MixorMatch(cards);
+    let game = new MixorMatch(30, cards);
      game.startGame();
+
+    overlays.forEach(overlay => {
+       overlay.addEventListener('click', () => {
+           overlay.classList.remove('visible');   
+       });
+   });
     cards.forEach(card=> {
         card.addEventListener('click', ()=> {
                 game.flipCard(card);
         })
     })
 }
-
 ```
 
  Below is a focal point for the game, showing what happens when a card is flipped. 
