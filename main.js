@@ -1,7 +1,7 @@
 //need array, create div element to hold cards called container, run through array holding cards, and *append* the cards 
- const cardContainer = document.createElement('div');
-cardContainer.classList.add('card-container');
-document.body.append(cardContainer)
+//  const cardContainer = document.createElement('div');
+// cardContainer.classList.add('card-container');
+// document.body.append(cardContainer)
 //run a for each through the array that is holding the cards , and going through each card and create a div for each for each card and append to the screen. 
 
 
@@ -19,6 +19,9 @@ startBTN2.onclick = function (){
 
 
 //create to hold entirety of the game. We need to create a parameter to refer to all the pieces of the game which is CARDS. We have a memory game and it is won via getting all the cards correct so we need to call all of them, cards Array. We want to track how many flips a player uses. This is a ticker and it gets assigned to the id flips. we also need the cards shuffled at the beginning. We also need to have an array for the matched cards which we will later compare to cards array. 
+
+//this class holds the start game function which resets the board, the function to check if a card can even be flipped, the function for when a card is flipped, how to check for a match, then the function where to go if there has been a match, and a function if there hasn't been a match, how to call on the html to make sure the files stirngs match, the function for if there is a victory, and to shuffle cards
+
 class MixorMatch {
     constructor(cards){
         this.cardsArray = cards;
@@ -27,11 +30,7 @@ class MixorMatch {
         
         //timer
         this.shuffleCards();
-        this.matchedCards = [];
-    
-        
-       
-        
+        this.matchedCards = [];     
     }
    
 // when we start the game we set card to check to null which means we are not checking anything and the busy to false which means nothing is in the way from checking any of the cards. Insert action page. at the top.        
@@ -43,6 +42,8 @@ class MixorMatch {
 startGame(){
         this.cardToCheck =null;
         this.busy =false;   
+        this.hideCards();
+        this.ticker.innerText = this.totalClicks
     }
 
 //after a card is has been selected and is now visible we want a function to return it to not being visible. This can happen to any card. !!!!!!!!When does it know two have been selected? !!!!!!!! so this does a for each method on the entirety fo the cards and removes visible and removes it from being matched if it doesn't have a match.
@@ -59,6 +60,8 @@ canFlipCard(card) {
         return ((!this.busy) && !this.matchedCards.includes(card) && card !== this.cardToCheck);
     }
     //when a card is flipped, we want the function to have some options so we set up some conditionals. if the card is flipped, no matter what it gets added to the total clicks counter and the card becomes visible. if it is a card to check meaning we can check it, then we see if it is matched, otherwise it just reamins as a card -- not sure on this.cardToCheck = card
+
+    //so when  a card CAN be flipped, and it is, the total for the clicks goes up, the card becoems visible and then if if it is the second card, the two get sent to check card for match, else it becomes card to check and another card has to be flipped 
 
 flipCard(card){
     if(this.canFlipCard(card)){
@@ -77,6 +80,14 @@ flipCard(card){
     }
     //then for when a card is a match, we add the cards, 1 and 2 to the matchedCards array. we add them to matched classes. and if the array of matchedCards is equal to all the cards then bam initiate the vicotry function 
 
+ checkForCardMatch(card){
+        if(this.getCardType(card)===this.getCardType(this.cardToCheck))
+            this.cardMatch(card, this.cardToCheck);
+        else
+            this.cardMisMatch(card, this.cardToCheck);
+
+    this.cardToCheck = null; 
+} 
   cardMatch(card1, card2){
         this.matchedCards.push(card1);
         this.matchedCards.push(card2);
@@ -99,14 +110,7 @@ cardMisMatch(card1, card2){
     }
     //check for if they are a match we need to get the cardtype and see if what we clicked is matched by the second card we clicked which is the card to check. why no open bracket????????? so then if they do equal then we initate cardMatch with the first card and the card to check. so basiclaly i believe we are running card to check on the second card selected. the first card selected is just first card. otherwise we send both cards to mismatch and then reset the checking function back to null
 
-    checkForCardMatch(card){
-        if(this.getCardType(card)===this.getCardType(this.cardToCheck))
-            this.cardMatch(card, this.cardToCheck);
-        else
-            this.cardMisMatch(card, this.cardToCheck);
-
-    this.cardToCheck = null; 
-} 
+    
 
 //why are things after the fact? cause of the class? like why are we defining card typ after we've used it above? anyway, we get the card type by passing through the card and getting the class name and checking the src? to see if it's equal? game over really doesn't matter without at imer. it would have the secon dhave of reload btn stuff too. 
 
@@ -114,9 +118,7 @@ cardMisMatch(card1, card2){
         return card.getElementsByClassName('card-value')[0].src;
 
     }
-    gameOver(){
-        document.getElementById('game-over-text').classList.add('visible');
-    }
+  
     victory() {
         document.getElementById('victory-text').classList.add('visible') 
         const reloadBtn = document.getElementById("overlay-text-victory-small");
@@ -136,26 +138,34 @@ cardMisMatch(card1, card2){
         }
 }
 
+//array from creates an array from whatever we are calling. So Overlay Text is somehow tied to everything but card is now an array and for each of them it creates when you click it, it's going to flip the card 
+
+//ready funciton does 3 things: creates an array of all my cards, takes my array and uses them in a new class to initiate a start game function and it's going to attach an event listener to each of the cardthat allows them to operate the flip card function. 
+
 function ready() {
-    let overlays = Array.from(document.getElementsByClassName('overlay-text'));
+
+
+    //let overlays = Array.from(document.getElementsByClassName('overlay-text'));
     let cards = Array.from(document.getElementsByClassName('card'));
    
 
      let game = new MixorMatch(cards);
-      
+     game.startGame();
 
-    overlays.forEach(overlay => {
-        overlay.addEventListener('click', () => {
-            overlay.classList.remove('visible');
-            game.startGame();
-        });
-    });
+   // overlays.forEach(overlay => {
+     //   overlay.addEventListener('click', () => {
+       //     overlay.classList.remove('visible');
+         
+       // });
+   // });
     cards.forEach(card=> {
         card.addEventListener('click', ()=> {
                 game.flipCard(card);
         })
     })
 }
+
+//this is saying if the page is not ready upon going toward, then load ready when it is loaded, otherwise thne it is not still loading and ready can be intiliazed. 
 
 if(document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', ready);

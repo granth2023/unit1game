@@ -20,6 +20,7 @@ h1{
     border: #415EA3;  
 }
 
+
 .page-title {
     color: #415EA3;
     font-family: Limelight, Georgia, 'Times New Roman', Times, serif;
@@ -107,6 +108,7 @@ border-left: none;
     background-color: #415EA3;
     color: #BA8C63;
     font-family: Limelight, Georgia, 'Times New Roman', Times, serif;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
 }
 
@@ -142,6 +144,7 @@ border-left: none;
     color: #BA8C63;
     background-color: #415EA3;
     font-family: Limelight, Georgia, 'Times New Roman', Times, serif;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .overlay-text.visible {
@@ -151,6 +154,7 @@ border-left: none;
     align-items: center;
     justify-content: center;
     font-size: .6em;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 @keyframes overlay-grow {
