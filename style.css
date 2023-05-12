@@ -100,7 +100,7 @@ border-left: none;
    align-items: center;  
    z-index: 100;
    color: #415EA3;
-   font-family: Acme-Regular, Georgia, 'Times New Roman', Times, serif;
+   font-family:Limelight, Georgia, 'Times New Roman', Times, serif;
 }
 
 #overlay-text-victory-small {
@@ -111,6 +111,39 @@ border-left: none;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
 }
+
+#overlay-game-over{
+    display:  none; 
+    position: fixed;
+    top:0;
+    right:0;
+    bottom: 0;
+    left: 0;
+   justify-content: center;
+   align-items: center;  
+   z-index: 100;
+   color: #415EA3;
+   font-family:Limelight, 
+
+}
+#overlay-game-over.visible{
+    display:  flex; 
+    position: fixed;
+    top:0;
+    right:0;
+    bottom: 0;
+    left: 0;
+   justify-content: center;
+   align-items: center;  
+   z-index: 100;
+   color: #415EA3;
+   font-family:Limelight;
+   flex-direction: column ;
+    animation: overlay-grow 500ms forwards;
+    font-size: .6em;
+
+}
+
 
 #overlay-welcome{
     position: fixed; 
@@ -145,6 +178,15 @@ border-left: none;
     background-color: #415EA3;
     font-family: Limelight, Georgia, 'Times New Roman', Times, serif;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#restart.visible {
+    font-size: 2em;
+    background-color: #415EA3;
+    color: #BA8C63;
+    font-family: Limelight, Georgia, 'Times New Roman', Times, serif;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .overlay-text.visible {

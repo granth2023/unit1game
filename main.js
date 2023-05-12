@@ -9,12 +9,17 @@
 
 const startBTN = document.getElementsByClassName("overlay-welcome");
 const startBTN2 = document.getElementById('startbutton');
-startBTN.onclick = function (){
-    startBTN.style.display = 'none';
-}
-startBTN2.onclick = function (){
-    startBTN2.style.display = 'none';
-}
+// startBTN.onclick = function (){
+//     startBTN.style.display = 'none';
+// }
+// startBTN2.onclick = function (){
+//     startBTN2.style.display = 'none';
+// }
+
+
+
+
+
 
 
 
@@ -23,28 +28,48 @@ startBTN2.onclick = function (){
 //this class holds the start game function which resets the board, the function to check if a card can even be flipped, the function for when a card is flipped, how to check for a match, then the function where to go if there has been a match, and a function if there hasn't been a match, how to call on the html to make sure the files stirngs match, the function for if there is a victory, and to shuffle cards
 
 class MixorMatch {
-    constructor(cards){
+    constructor(totalTime, cards){
         this.cardsArray = cards;
+        this.totalTime = totalTime;
+        this.timeRemaining = totalTime;
+        this.timer = document.getElementById('time-remaining');
         this.ticker = document.getElementById('flips');
         this.totalClicks = 0;
+       
         
         //timer
         this.shuffleCards();
-        this.matchedCards = [];     
+        this.matchedCards = [];   
+        const restartbttn = document.getElementById('restart');
+
+restartbttn.addEventListener('click', () => {
+    location.reload();
+})  
     }
    
 // when we start the game we set card to check to null which means we are not checking anything and the busy to false which means nothing is in the way from checking any of the cards. Insert action page. at the top.        
- 
 
-    
+
 
 
 startGame(){
-        this.cardToCheck =null;
-        this.busy =false;   
-        this.hideCards();
-        this.ticker.innerText = this.totalClicks
+    this.cardToCheck =null;
+    this.ticker.innerText = this.totalClicks
+    this.timeRemaining = this.totalTime
+    this.busy = true;
+    
+    this.shuffleCards();
+    this.busy = false;
+
+    this.hideCards();
+    this.timer.innerText = this.timeRemaining;
+    const startBTN2 = document.getElementById('startbutton');
+    startBTN2.onclick = () => {
+        this.countDown = this.startCountDown();
+        startBTN2.style.display = 'none';
     }
+}
+
 
 //after a card is has been selected and is now visible we want a function to return it to not being visible. This can happen to any card. !!!!!!!!When does it know two have been selected? !!!!!!!! so this does a for each method on the entirety fo the cards and removes visible and removes it from being matched if it doesn't have a match.
 
@@ -78,6 +103,8 @@ flipCard(card){
                 //if statment
             }
     }
+
+   
     //then for when a card is a match, we add the cards, 1 and 2 to the matchedCards array. we add them to matched classes. and if the array of matchedCards is equal to all the cards then bam initiate the vicotry function 
 
  checkForCardMatch(card){
@@ -118,8 +145,27 @@ cardMisMatch(card1, card2){
         return card.getElementsByClassName('card-value')[0].src;
 
     }
+    startCountDown(){
+        return setInterval(() => {
+            this.timeRemaining--;
+            this.timer.innerText = this.timeRemaining;
+            if(this.timeRemaining === 0) {
+                this.gameOver();
+            }
+        }, 1000);
+    }
   
+
+    gameOver() {
+        clearInterval(this.countDown);
+        document.getElementById('overlay-game-over').classList.add ('visible');
+        const restart = document.getElementById("restart").classList.add('visible');
+
+    }
+
+    
     victory() {
+        clearInterval(this.countDown);
         document.getElementById('victory-text').classList.add('visible') 
         const reloadBtn = document.getElementById("overlay-text-victory-small");
         reloadBtn.addEventListener('click',() => {
@@ -128,6 +174,8 @@ cardMisMatch(card1, card2){
           });
     }   
 //got to shuffle them cards! so it's going to loop through the cards. we want to loop through them from top to bottom and we want to randomize them so we create random index and take all the cards array with a randomizer to change the order via style and set that to i so that puts each card so then the card array is set to itself with a randomization.
+
+
 
     shuffleCards() {
             for(let i = this.cardsArray.length -1; i >0; i--){
@@ -145,19 +193,19 @@ cardMisMatch(card1, card2){
 function ready() {
 
 
-    //let overlays = Array.from(document.getElementsByClassName('overlay-text'));
+    let overlays = Array.from(document.getElementsByClassName('overlay-text'));
     let cards = Array.from(document.getElementsByClassName('card'));
    
 
-     let game = new MixorMatch(cards);
+     let game = new MixorMatch(30, cards);
      game.startGame();
 
-   // overlays.forEach(overlay => {
-     //   overlay.addEventListener('click', () => {
-       //     overlay.classList.remove('visible');
+   overlays.forEach(overlay => {
+       overlay.addEventListener('click', () => {
+           overlay.classList.remove('visible');
          
-       // });
-   // });
+       });
+   });
     cards.forEach(card=> {
         card.addEventListener('click', ()=> {
                 game.flipCard(card);
