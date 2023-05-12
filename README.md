@@ -95,6 +95,19 @@ checkForCardMatch(card){
 
  ```   
 
+ ``` CSS
+
+
+.card.visible .card-back{
+    transform: rotateY(-180deg);
+}
+
+.card.visible .card-front{
+    transform: rotateY(0deg);
+}
+
+```
+
 ## **Play now:**
 
 https://majestic-griffin-87055a.netlify.app/
