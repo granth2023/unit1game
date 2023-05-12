@@ -17,31 +17,21 @@ Create a browser game that uses JavaScript to power a CSS designed HTML file.
 
 ## **When you open the web page you get:**
 
-![Image](opening_page.png)
+![Image](1.png)
 
-## **Then, after clicking you get blank board.**
+## **Then, after clicking a square you get:.**
 
-![Image](nullboard.png)
+![Image](2.png)
 
-## **Tiles reveal themself when clicked:**
+## **When you run out of time:**
 
-![Image](firstattempt.png)
+![Image](3.png)
 
-## **Stay revealed when matched:**
+## **when you get all the matches:**
 
-![Image](firstmatch.png)
+![Image](4.png)
 
-## **The board gets filled in**
 
-![Image](midgame.png)
-
-## **And when you get all the titles you get:**
-
-![Image](victorypage.png)
-
-## **After click guess again you start over:**
-
-![Image](reopen.png)
 
 
 
