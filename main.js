@@ -166,10 +166,3 @@ if(document.readyState === 'loading'){
 } else {
     ready();
 }
-//     //flexbox: left to right, row and wrap, flex made for uniformity DOM ELEMENT, CREATE ELEMENTS AND THEN ADD FUNCTIONS WITH BUTTONS AND HANDLE CLICK AND MAP IT INTO EACH DIV, EVERY IMAGE INTO A BUTTON//need map to put on the screen
-//     //then a handle click function and a button on each one to allow for a swithc, create a butotn with each div and can switch 
-//     //attach ID or class to make it changeable so that a single class has a ternary operator to flip and keep it flipped 
-
-//     //create json, loop through it, append each onto html -- for every image class, create a json file, 
-    
-// ]
