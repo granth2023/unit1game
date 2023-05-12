@@ -69,7 +69,7 @@ function ready() {
 
 ```
 
-**Below is a focal point for the game, showing what happens when a card is flipped. **
+ Below is a focal point for the game, showing what happens when a card is flipped. 
 
 ``` Javascript
 
