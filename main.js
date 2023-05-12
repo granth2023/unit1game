@@ -25,8 +25,6 @@ class MixorMatch {
 startGame(){
     this.cardToCheck =null;
     this.ticker.innerText = this.totalClicks
-    this.timeRemaining = this.totalTime
-    this.busy = true;
     this.shuffleCards();
     this.busy = false;
     this.hideCards();
@@ -46,10 +44,9 @@ hideCards(){
             card.classList.remove('matched');
         });
     }
-//create a function that prohibits turning the cards over and this mean if the game not in the middle of being a process??????????????/, if it's not a match already and if it's not the card already selected
 
 canFlipCard(card) {
-        return ((!this.busy) && !this.matchedCards.includes(card) && card !== this.cardToCheck);
+        return ( !this.matchedCards.includes(card) && card !== this.cardToCheck);
     }
     //when a card is flipped, we want the function to have some options so we set up some conditionals. if the card is flipped, no matter what it gets added to the total clicks counter and the card becomes visible. if it is a card to check meaning we can check it, then we see if it is matched, otherwise it just reamins as a card
 
