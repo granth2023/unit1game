@@ -11,7 +11,7 @@ html {
 }
 body {
     margin:0;
-    background-color: #ffbf87 ;
+    background: radial-gradient(circle, #ffbf87, #fb8721);
     opacity: .88;
 }
 
@@ -215,7 +215,7 @@ border-left: none;
 }
 
 .card-front {
-    background-color: #ffbf87;
+    background-color: #fb8721;
     transform: rotateY(180deg);
 }
 
@@ -240,7 +240,7 @@ border-left: none;
 
 @media (max-width: 600px) {
     .game-container {
-        grid-template-columns: repeat (2,auto) ;
+        grid-template-columns: repeat(2,auto) ;
     }
     .game-info-container {
         flex-direction: column;

@@ -34,6 +34,7 @@ startGame(){
         this.countDown = this.startCountDown();
         startBTN2.style.display = 'none';
     }
+  
 }
 
 //after a card is has been selected and is now visible we want a function to return it to not being visible. This can happen to any card. !!!!!!!!When does it know two have been selected? !!!!!!!! so this does a for each method on the entirety fo the cards and removes visible and removes it from being matched if it doesn't have a match.
@@ -46,7 +47,7 @@ hideCards(){
     }
 
 canFlipCard(card) {
-        return ( !this.matchedCards.includes(card) && card !== this.cardToCheck);
+        return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
     }
     //when a card is flipped, we want the function to have some options so we set up some conditionals. if the card is flipped, no matter what it gets added to the total clicks counter and the card becomes visible. if it is a card to check meaning we can check it, then we see if it is matched, otherwise it just reamins as a card
 
@@ -60,6 +61,7 @@ flipCard(card){
     
          if(this.cardToCheck)
                     this.checkForCardMatch(card);
+                    
            else 
                         this.cardToCheck = card;
             }
@@ -74,6 +76,7 @@ flipCard(card){
             this.cardMisMatch(card, this.cardToCheck);
 
     this.cardToCheck = null; 
+ 
 } 
   cardMatch(card1, card2){
         this.matchedCards.push(card1);
